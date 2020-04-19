@@ -1,4 +1,5 @@
 ﻿using java.io;
+using System;
 using System.Text;
 using System.Threading;
 using System.Threading.Tasks;
@@ -15,7 +16,7 @@ namespace SignPdfSample
         public static string PinKodu;
         public static string HataMesaji = "";
 
-      
+
 
         public static string SertifikaBilgisi = "";
         public static string CardType = "";
@@ -26,6 +27,7 @@ namespace SignPdfSample
         public static bool ReadCard()
         {
             var smartCardManager = SmartCardManager.getInstance();
+
             if (Program.KartOkuyucuYok == 1) return false;
 
             var signingCert = smartCardManager.getSignatureCertificate(true, false);
@@ -36,8 +38,10 @@ namespace SignPdfSample
         }
         static void Main(string[] args)
         {
-            LisansHelper.LoadFreeLicense();
-            SignPdf();
+            if (LisansHelper.LoadFreeLicense())
+            {
+                SignPdf();
+            }
             System.Console.ReadLine();
         }
         static void SignPdf()
