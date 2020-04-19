@@ -134,7 +134,9 @@ namespace SignPdfSample
                 String terminal;
 
                 int index = 0;
-                String[] terminals = SmartOp.getCardTerminals();
+                
+                String[] terminals = SmartOp.getCardTerminals();      
+              
 
                 if (terminals == null || terminals.Length == 0)
                 {
@@ -396,7 +398,6 @@ namespace SignPdfSample
         {
             if (mSignatureCert == null)
             {
-                var allCerts = bsc.getSignatureCertificates();
                 mSignatureCert = selectCertificate(checkIsQualified, checkBeingNonQualified, bsc.getSignatureCertificates());
             }
 
