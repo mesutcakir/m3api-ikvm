@@ -305,17 +305,14 @@ namespace SignPdfSample
             }
             //catch (PKCS11Exception e)
             //{
-            //    File.WriteAllText(Program.AkareXmlFile + "HataMethodLog.txt", e.ToString());
             //    throw new SmartCardException("Pkcs11 exception", e);
             //}
             //catch (IOException e)
             //{
-            //    //File.WriteAllText(Program.AkareXmlFile + "HataMethodLog.txt", e.ToString());
             //    throw new SmartCardException("Smart Card IO exception - Detay bilgilerine bakınız", e);
             //}
             catch (Exception e)
             {
-                //  File.WriteAllText(Program.AkareXmlFile + "HataMethodLog.txt", e.ToString());
                 //Program.HataMesaji = e.Message;
                 throw new SmartCardException("Smart Card IO exception - Detay bilgilerine bakınız", e);
             }
